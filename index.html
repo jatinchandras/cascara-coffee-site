@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Cascara Coffee Roasters: small-batch specialty coffee roasted in Hyderabad. Fresh beans, brew guides and a café in Banjara Hills.">
+<title>Cascara · Coffee Roasters</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=DM+Sans:opsz,wght@9..40,400..600&display=swap" rel="stylesheet">
+<style>
+:root{--oat:#F1EADB;--roast:#2A1D17;--pist:#C9D69B;--cherry:#E4572E;box-sizing:border-box}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:96px}
+body{margin:0;background:var(--oat);color:var(--roast);font:400 17px/1.6 'DM Sans',system-ui,sans-serif;overflow-x:hidden;padding-bottom:env(safe-area-inset-bottom,0px)}
+h1,h2,h3,.disp{font-family:'Bricolage Grotesque','DM Sans',sans-serif;font-weight:600;letter-spacing:-.035em;line-height:.96;margin:0}
+h1{font-size:clamp(3.2rem,9.5vw,8rem)}
+h2{font-size:clamp(2.4rem,6vw,4.6rem)}
+h3{font-size:1.5rem;letter-spacing:-.02em;line-height:1.1}
+p{margin:0 0 1em;max-width:46ch}
+a{color:inherit}
+img{display:block;width:100%;height:100%;object-fit:cover}
+:focus-visible{outline:3px solid var(--cherry);outline-offset:3px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+section{padding:96px 0}
+.panel{border-radius:44px;margin:0 14px;padding:90px 0}
+.ph{background:radial-gradient(circle,rgba(42,29,23,.13) 1.5px,transparent 2px) 0 0/16px 16px,color-mix(in srgb,var(--roast) 6%,var(--oat))}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--roast);color:var(--oat);border:0;border-radius:999px;padding:15px 28px;font:500 1rem 'DM Sans',sans-serif;text-decoration:none;cursor:pointer;transition:transform .2s,background .2s}
+.btn:hover{transform:translateY(-2px);background:var(--cherry);color:var(--roast)}
+.btn.c{background:var(--cherry);color:var(--roast)}.btn.c:hover{background:var(--roast);color:var(--oat)}
+.btn.o{background:transparent;color:inherit;box-shadow:inset 0 0 0 1.5px currentColor}.btn.o:hover{background:var(--roast);color:var(--oat)}
+/* nav */
+.nav{position:fixed;z-index:30;top:calc(14px + env(safe-area-inset-top,0px));left:50%;transform:translateX(-50%);width:min(1100px,calc(100% - 28px));display:flex;align-items:center;justify-content:space-between;gap:16px;padding:10px 12px 10px 26px;border-radius:999px;background:color-mix(in srgb,var(--oat) 78%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 0 0 1px rgba(42,29,23,.12),0 10px 30px -18px rgba(42,29,23,.5)}
+.logo{font:700 1.6rem/1 'Bricolage Grotesque',sans-serif;letter-spacing:-.04em;text-decoration:none}
+.logo i{display:inline-block;width:.55em;height:.55em;border-radius:50%;background:var(--cherry);margin-left:3px}
+.links{display:flex;gap:6px;align-items:center}
+.links a{text-decoration:none;font-weight:500;font-size:.95rem;padding:8px 14px;border-radius:999px;transition:background .2s}
+.links a:hover,.links a.on{background:var(--pist)}
+.bag{background:var(--roast);color:var(--oat)!important}.bag:hover{background:var(--cherry)!important;color:var(--roast)!important}
+.bag b{display:inline-block;min-width:1.5em;text-align:center;background:var(--cherry);color:var(--roast);border-radius:99px;margin-left:6px;font-size:.85rem}
+.bag.pop b{animation:pop .4s}
+@keyframes pop{50%{transform:scale(1.5)}}
+.burger{display:none;background:var(--roast);color:var(--oat);border:0;border-radius:999px;padding:10px 20px;font:inherit;font-weight:500;cursor:pointer}
+/* hero */
+.hero{padding:140px 0 70px}
+.hero h1{max-width:12ch}
+.hero .sub{display:flex;justify-content:space-between;align-items:end;gap:28px;flex-wrap:wrap;margin:28px 0 44px}
+.hero .sub p{font-size:1.2rem;margin:0}
+.bento{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:minmax(190px,auto);gap:14px}
+.tile{border-radius:30px;padding:26px;position:relative;overflow:hidden}
+.t-img{padding:0}
+.t-img .chip{position:absolute;left:18px;bottom:18px;background:var(--oat);border-radius:999px;padding:8px 16px;font-size:.9rem;font-weight:500;z-index:1}
+.b1{grid-column:span 2;grid-row:span 2;min-height:420px}
+.b2{background:var(--cherry);display:flex;flex-direction:column;justify-content:space-between}
+.b3{background:var(--pist);display:flex;flex-direction:column;justify-content:space-between}
+.b4{grid-column:span 2;background:var(--roast);color:var(--oat);display:grid;grid-template-columns:1fr 1fr;gap:20px;padding:0}
+.b4>div:first-child{padding:26px;display:flex;flex-direction:column;justify-content:space-between;align-items:flex-start}
+.tile .big{font:700 clamp(3rem,6vw,4.6rem)/.9 'Bricolage Grotesque',sans-serif;letter-spacing:-.05em}
+.tile small{font-size:.9rem;font-weight:500}
+/* strip */
+.strip{background:var(--cherry);overflow:hidden;white-space:nowrap;padding:16px 0;margin:30px 0;transform:rotate(-1deg)}
+.strip div{display:inline-block;animation:slide 45s linear infinite;font:600 1.7rem/1 'Bricolage Grotesque',sans-serif;letter-spacing:-.02em}
+.strip span{margin:0 22px}
+@keyframes slide{to{transform:translateX(-50%)}}
+.head{display:flex;justify-content:space-between;align-items:end;gap:28px;flex-wrap:wrap;margin-bottom:48px}
+.head p{margin:0}
+/* roast */
+.roast{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:center}
+.beanbox{background:var(--oat);border-radius:36px;aspect-ratio:1;max-width:420px;width:100%;display:grid;place-items:center;position:relative}
+.beanbox svg{width:62%;transition:transform .5s}
+#bf{transition:fill .4s}
+.beanbox .lvl{position:absolute;bottom:22px;font:600 1.4rem 'Bricolage Grotesque',sans-serif;letter-spacing:-.02em}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:12px;border-radius:99px;background:linear-gradient(90deg,#B98A54,#2A1D17);margin:18px 0 8px}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:34px;height:34px;border-radius:50%;background:var(--oat);border:4px solid var(--roast);cursor:grab}
+input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;background:var(--oat);border:4px solid var(--roast);cursor:grab}
+.scale{display:flex;justify-content:space-between;font-size:.85rem;font-weight:500}
+.notes{font:600 clamp(1.8rem,3.4vw,2.6rem)/1.05 'Bricolage Grotesque',sans-serif;letter-spacing:-.03em;margin:30px 0 22px;min-height:2.2em}
+.bars{display:grid;gap:12px;margin-bottom:22px}
+.bar{display:grid;grid-template-columns:90px 1fr;align-items:center;gap:12px;font-weight:500;font-size:.95rem}
+.bar i{display:block;height:10px;border-radius:99px;background:rgba(42,29,23,.15);overflow:hidden}
+.bar i b{display:block;height:100%;background:var(--roast);border-radius:99px;transition:width .4s}
+/* shop */
+.prods{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.prod{display:flex;flex-direction:column}
+.prod .im{aspect-ratio:1;border-radius:30px;overflow:hidden;margin-bottom:16px;transition:transform .3s}
+.prod:hover .im{transform:rotate(-1.5deg) scale(1.02)}
+.prod .meta{font-size:.85rem;font-weight:500;opacity:.7}
+.prod p{font-size:.95rem;margin:6px 0 14px}
+.prod .row{display:flex;justify-content:space-between;align-items:center;margin-top:auto}
+.prod .price{font:600 1.5rem 'Bricolage Grotesque',sans-serif}
+.prod .btn{padding:10px 18px;font-size:.9rem}
+/* why */
+.why{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:minmax(220px,auto);gap:14px}
+.w1{grid-column:span 2;grid-row:span 2;background:var(--pist);display:flex;flex-direction:column;justify-content:space-between}
+.w2,.w3{padding:0;min-height:220px}
+.w4{grid-column:span 2;background:var(--cherry);display:flex;align-items:center;gap:20px}
+.w4 .big{font:700 4.6rem/.9 'Bricolage Grotesque',sans-serif;letter-spacing:-.05em}
+.w1 h3{font-size:clamp(2rem,4vw,3rem);line-height:1}
+/* brew */
+.brew{background:var(--roast);color:var(--oat)}
+.calc{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+.seg{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 26px}
+.seg button{background:transparent;color:inherit;border:0;box-shadow:inset 0 0 0 1.5px currentColor;border-radius:999px;padding:10px 20px;font:500 .95rem 'DM Sans',sans-serif;cursor:pointer}
+.seg button[aria-pressed=true]{background:var(--pist);color:var(--roast);box-shadow:none}
+.brew input[type=range]{background:var(--pist)}
+.brew input[type=range]::-webkit-slider-thumb{border-color:var(--cherry)}
+.brew input[type=range]::-moz-range-thumb{border-color:var(--cherry)}
+label.l{font-weight:500}
+.out{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.out div{background:rgba(241,234,219,.1);border-radius:26px;padding:22px}
+.out div:first-child{grid-column:1/-1;background:var(--cherry);color:var(--roast)}
+.out b{display:block;font:700 clamp(2.6rem,5vw,4rem)/1 'Bricolage Grotesque',sans-serif;letter-spacing:-.04em}
+.out small{font-weight:500}
+/* subscribe */
+.sub-card{background:var(--cherry);border-radius:44px;margin:0 14px;padding:80px 0}
+.subs{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.sbox{background:var(--oat);border-radius:34px;padding:34px}
+.sbox .p{font:700 4.4rem/1 'Bricolage Grotesque',sans-serif;letter-spacing:-.05em;margin:6px 0}
+.sbox s{opacity:.5;font-size:1.3rem;margin-left:8px;font-weight:400}
+/* visit */
+.visit{display:grid;grid-template-columns:1.1fr .9fr;gap:14px}
+.v1{aspect-ratio:4/3;padding:0}
+.v2{background:var(--pist)}
+.open{display:inline-flex;align-items:center;gap:8px;background:var(--oat);border-radius:999px;padding:6px 16px;font-weight:500;margin-bottom:18px}
+.open i{width:10px;height:10px;border-radius:50%;background:#2e9d55}.open.x i{background:var(--cherry)}
+dl{margin:0}dt{font:600 1.3rem 'Bricolage Grotesque',sans-serif;margin-top:14px}dd{margin:0}
+/* footer */
+footer{background:var(--roast);color:var(--oat);border-radius:44px 44px 0 0;margin-top:90px;padding:70px 0 0;overflow:hidden}
+.fgrid{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:40px}
+footer h3{color:var(--pist);margin-bottom:10px;font-size:1.2rem}
+footer nav a{display:block;text-decoration:none;padding:2px 0}footer nav a:hover{color:var(--cherry)}
+.nl{display:flex;gap:8px;margin-top:12px}
+.nl input{flex:1;min-width:0;background:rgba(241,234,219,.1);border:0;border-radius:999px;padding:14px 20px;color:var(--oat);font:inherit}
+.nl input::placeholder{color:rgba(241,234,219,.6)}
+.word{font:700 clamp(5rem,24vw,21rem)/.78 'Bricolage Grotesque',sans-serif;letter-spacing:-.07em;text-align:center;margin-top:50px;color:var(--cherry);white-space:nowrap}
+.copy{text-align:center;font-size:.85rem;opacity:.6;padding:26px 0 14px}
+@media (max-width:960px){
+.burger{display:block}
+.links{display:none;position:absolute;top:calc(100% + 10px);left:0;right:0;flex-direction:column;align-items:stretch;background:var(--oat);border-radius:28px;padding:12px;box-shadow:0 0 0 1px rgba(42,29,23,.12),0 20px 40px -20px rgba(42,29,23,.5)}
+.links.open{display:flex}.links a{padding:14px 18px;font-size:1.1rem}
+.bento,.why{grid-template-columns:1fr 1fr}
+.b1{grid-column:span 2;min-height:340px}.b4{grid-column:span 2;grid-template-columns:1fr}.b4 .im{min-height:200px}
+.w1,.w4{grid-column:span 2}
+.roast,.calc,.subs,.visit,.fgrid{grid-template-columns:1fr;gap:40px}
+.prods{grid-template-columns:1fr 1fr}
+section{padding:70px 0}.panel,.sub-card{padding:64px 0}}
+@media (max-width:560px){.prods{grid-template-columns:1fr}.bag{padding:8px 12px}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<header class="nav">
+<a class="logo" href="#top">Cascara<i></i></a>
+<nav class="links" id="links" aria-label="Main"><a href="#roast">Roast guide</a><a href="#shop">Beans</a><a href="#brew">Brew guide</a><a href="#subscribe">Subscribe</a><a href="#visit">Café</a><a class="bag" href="#shop">Bag<b id="bc">0</b></a></nav>
+<button class="burger" aria-expanded="false" aria-controls="links">Menu</button>
+</header>
+
+<main id="top">
+<div class="wrap hero">
+<h1>Coffee, roasted a little slower.</h1>
+<div class="sub"><p>Small-batch specialty coffee, roasted in Hyderabad and sent to your door within 48 hours. Buy beans, learn to brew, or just come and sit.</p><div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn c" href="#shop">Shop beans</a><a class="btn o" href="#brew">Brew guide</a></div></div>
+<div class="bento">
+<div class="tile t-img b1 ph"><img src="images/hero-1.jpg" alt="Barista pouring hot water over coffee" fetchpriority="high" onerror="this.remove()"><span class="chip">Now pouring: Guji Natural</span></div>
+<div class="tile b2"><small>Roasted fresh</small><div><div class="big" id="batch">#000</div><small id="bdate">today</small></div></div>
+<div class="tile b3"><small>Roast to door</small><div class="big">48h</div></div>
+<div class="tile b4"><div><div class="disp" style="font-size:1.9rem;line-height:1">This week&rsquo;s beans are in.</div><a class="btn c" href="#shop">See the list</a></div><div class="im ph" style="min-height:190px"><img src="images/hero-2.jpg" alt="Close-up of freshly roasted coffee beans" loading="lazy" onerror="this.remove()"></div></div>
+</div>
+</div>
+
+<div class="strip" aria-hidden="true"><div><script>document.write(('Jasmine<span>✺</span>Dark chocolate<span>✺</span>Red plum<span>✺</span>Brown sugar<span>✺</span>Blood orange<span>✺</span>Toasted almond<span>✺</span>Honeysuckle<span>✺</span>').repeat(6))</script></div></div>
+
+<section class="panel" id="roast" style="background:var(--pist)">
+<div class="wrap">
+<div class="head"><h2>Find your<br>roast</h2><p>Slide from light to dark and see how flavour, acidity and body change.</p></div>
+<div class="roast">
+<div class="beanbox"><svg id="bean" viewBox="0 0 200 200" aria-hidden="true"><g transform="rotate(32 100 100)"><ellipse id="bf" cx="100" cy="100" rx="58" ry="86" fill="#B98A54"/><path d="M100 16c-28 52 28 116 0 168" fill="none" stroke="#F1EADB" stroke-opacity=".55" stroke-width="7" stroke-linecap="round"/></g></svg><span class="lvl" id="lvl">Light</span></div>
+<div>
+<label class="l" for="rs">Roast level</label>
+<input type="range" id="rs" min="0" max="4" step="1" value="1">
+<div class="scale"><span>Light</span><span>Medium</span><span>Dark</span></div>
+<div class="notes" id="notes"></div>
+<div class="bars"><div class="bar">Acidity<i><b id="b0"></b></i></div><div class="bar">Body<i><b id="b1"></b></i></div><div class="bar">Sweetness<i><b id="b2"></b></i></div></div>
+<p>Best for: <b id="best"></b></p>
+</div>
+</div>
+</div>
+</section>
+
+<section id="shop">
+<div class="wrap">
+<div class="head"><h2>Beans, this<br>week</h2><p>Roasted to order every Monday and Thursday. Each bag is 250 g.</p></div>
+<div class="prods">
+<article class="prod"><div class="im ph"><img src="images/bag-1.jpg" alt="Guji Natural coffee bag" loading="lazy" onerror="this.remove()"></div><span class="meta">Ethiopia · Light roast</span><h3>Guji Natural</h3><p>Jasmine, peach and honey. Bright and juicy.</p><div class="row"><span class="price">₹720</span><button class="btn" data-add>Add</button></div></article>
+<article class="prod"><div class="im ph"><img src="images/bag-2.jpg" alt="Chikmagalur Estate coffee bag" loading="lazy" onerror="this.remove()"></div><span class="meta">Karnataka · Medium roast</span><h3>Chikmagalur Estate</h3><p>Cocoa, orange peel and caramel. Balanced and easy.</p><div class="row"><span class="price">₹620</span><button class="btn" data-add>Add</button></div></article>
+<article class="prod"><div class="im ph"><img src="images/bag-3.jpg" alt="Huila Washed coffee bag" loading="lazy" onerror="this.remove()"></div><span class="meta">Colombia · Medium-light</span><h3>Huila Washed</h3><p>Red apple, panela and almond. Clean and sweet.</p><div class="row"><span class="price">₹690</span><button class="btn" data-add>Add</button></div></article>
+<article class="prod"><div class="im ph"><img src="images/bag-4.jpg" alt="Night Shift blend coffee bag" loading="lazy" onerror="this.remove()"></div><span class="meta">House blend · Dark roast</span><h3>Night Shift</h3><p>Dark chocolate, toasted nuts and molasses. Great with milk.</p><div class="row"><span class="price">₹590</span><button class="btn" data-add>Add</button></div></article>
+</div>
+</div>
+</section>
+
+<section style="padding-top:0">
+<div class="wrap why">
+<div class="tile w1"><h3>Bought direct from farms we have visited.</h3><p style="margin:0">We pay above fair-trade prices and share the story of every lot on its bag, so you know exactly who grew your coffee.</p></div>
+<div class="tile t-img w2 ph"><img src="images/farm.jpg" alt="Coffee cherries on the branch" loading="lazy" onerror="this.remove()"></div>
+<div class="tile t-img w3 ph"><img src="images/roastery.jpg" alt="Our small drum roaster" loading="lazy" onerror="this.remove()"></div>
+<div class="tile w4"><span class="big">0</span><p style="margin:0">single-use plastics in our bags. Compostable, always.</p></div>
+</div>
+</section>
+
+<section class="panel brew" id="brew">
+<div class="wrap">
+<div class="head"><h2>The brew<br>guide</h2><p>Pick a method and how much you want to make. We will do the maths.</p></div>
+<div class="calc">
+<div>
+<span class="l">Method</span>
+<div class="seg" id="seg"></div>
+<label class="l" for="amt" id="alab">Water</label>
+<input type="range" id="amt">
+<p style="margin-top:6px"><b id="aval" class="disp" style="font-size:2rem"></b></p>
+</div>
+<div class="out" role="status">
+<div><small>Coffee to use</small><b id="o0"></b></div>
+<div><small>Grind</small><b id="o1" style="font-size:2rem"></b></div>
+<div><small>Water temp</small><b id="o2" style="font-size:2rem"></b></div>
+<div style="grid-column:1/-1"><small>Brew time</small><b id="o3" style="font-size:2rem"></b></div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="sub-card" id="subscribe" style="margin-top:90px">
+<div class="wrap subs">
+<div><h2>Beans on repeat.</h2><p style="margin-top:22px;font-size:1.15rem">Choose a size and a rhythm. We roast it fresh, ship it free and take 10% off every bag. Skip, pause or cancel in a tap.</p></div>
+<div class="sbox">
+<span class="l">Bag size</span><div class="seg" id="size" style="color:var(--roast)"><button aria-pressed="true" data-v="250">250 g</button><button aria-pressed="false" data-v="1000">1 kg</button></div>
+<span class="l">How often</span><div class="seg" id="freq" style="color:var(--roast)"><button aria-pressed="false" data-v="Every week">Weekly</button><button aria-pressed="true" data-v="Every 2 weeks">Fortnightly</button><button aria-pressed="false" data-v="Every month">Monthly</button></div>
+<div class="p"><span id="sp">₹585</span><s id="so">₹650</s></div>
+<p style="margin:0 0 20px"><span id="sf">Every 2 weeks</span>, free delivery</p>
+<button class="btn c" id="sj">Start my subscription</button><p id="sm" style="margin:14px 0 0;font-weight:500" role="status"></p>
+</div>
+</div>
+</section>
+
+<section id="visit">
+<div class="wrap">
+<div class="head"><h2>Come<br>sit with us</h2><p>Our café sits above the roastery. Filter coffee, espresso and fresh pastries, with the roaster humming in the background.</p></div>
+<div class="visit">
+<div class="tile t-img v1 ph"><img src="images/cafe.jpg" alt="Inside the Cascara café" loading="lazy" onerror="this.remove()"></div>
+<div class="tile v2"><span class="open" id="open"><i></i><span id="ot">Checking hours</span></span>
+<dl><dt>Find us</dt><dd>8 Orchard Lane, Banjara Hills, Hyderabad</dd><dt>Hours</dt><dd>Mon to Fri, 7 am to 9 pm<br>Sat and Sun, 8 am to 10 pm</dd><dt>Say hello</dt><dd>+91 98765 43210<br>hello@cascara.example</dd></dl></div>
+</div>
+</div>
+</section>
+</main>
+
+<footer>
+<div class="wrap">
+<div class="fgrid">
+<div><h3>Get 10% off your first bag</h3><form class="nl" id="nl"><input type="email" required placeholder="you@email.com" aria-label="Email"><button class="btn c" type="submit">Join</button></form><p id="nm" style="margin-top:10px" role="status"></p></div>
+<div><h3>Explore</h3><nav><a href="#roast">Roast guide</a><a href="#shop">Beans</a><a href="#brew">Brew guide</a><a href="#subscribe">Subscribe</a><a href="#visit">Café</a></nav></div>
+<div><h3>Open today</h3><p>Banjara Hills, Hyderabad<br>Roasting Mon and Thu</p></div>
+</div>
+</div>
+<div class="word" aria-hidden="true">Cascara</div>
+<div class="copy">© 2026 Cascara Coffee Roasters. A sample website.</div>
+</footer>
+
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+/* nav */
+const bg=$('.burger'),lk=$('#links');
+bg.onclick=()=>{const o=lk.classList.toggle('open');bg.setAttribute('aria-expanded',o);bg.textContent=o?'Close':'Menu'};
+$$('#links a').forEach(a=>a.addEventListener('click',()=>{lk.classList.remove('open');bg.textContent='Menu'}));
+const nl=$$('#links a:not(.bag)');
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)nl.forEach(l=>l.classList.toggle('on',l.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-45% 0px -50% 0px'});
+nl.forEach(l=>{const s=$(l.getAttribute('href'));s&&io.observe(s)});
+/* batch */
+const now=new Date(),doy=Math.floor((now-new Date(now.getFullYear(),0,0))/864e5);
+$('#batch').textContent='#'+(200+doy);$('#bdate').textContent='Batch roasted '+now.toLocaleDateString('en-IN',{day:'numeric',month:'long'});
+/* bag */
+let bag=0;$$('[data-add]').forEach(b=>b.onclick=()=>{bag++;$('#bc').textContent=bag;const a=$('.bag');a.classList.remove('pop');void a.offsetWidth;a.classList.add('pop');b.textContent='Added';setTimeout(()=>b.textContent='Add',1200)});
+/* roast */
+const R=[['Light','Jasmine, peach, lemon zest',[5,2,3],'Pour over','#B98A54'],['Medium-light','Red apple, honey, almond',[4,3,4],'V60 or AeroPress','#9A6A3B'],['Medium','Caramel, orange peel, hazelnut',[3,3,4],'Any method you love','#74482A'],['Medium-dark','Cocoa, toasted nuts, brown sugar',[2,4,3],'French press or moka pot','#4F2F1D'],['Dark','Dark chocolate, smoke, molasses',[1,5,2],'Espresso and milk drinks','#2A1D17']];
+function roast(){const r=R[+$('#rs').value];$('#lvl').textContent=r[0];$('#notes').textContent=r[1];$('#best').textContent=r[3];$('#bf').setAttribute('fill',r[4]);
+r[2].forEach((v,i)=>$('#b'+i).style.width=v*20+'%');$('#bean').style.transform='rotate('+(+$('#rs').value*18)+'deg)'}
+$('#rs').oninput=roast;roast();
+/* brew */
+const M={'Pour over':{r:16,min:250,max:750,st:50,d:500,g:'Medium-fine, like table salt',t:'94 °C',tm:'About 3 min',u:'ml water'},
+'French press':{r:15,min:250,max:1000,st:50,d:500,g:'Coarse, like sea salt',t:'95 °C',tm:'4 min, then press',u:'ml water'},
+'Espresso':{r:2,min:30,max:80,st:2,d:36,g:'Fine, a little finer than sugar',t:'93 °C',tm:'25 to 30 seconds',u:'g in the cup'},
+'Cold brew':{r:8,min:500,max:2000,st:100,d:1000,g:'Coarse, like cracked pepper',t:'Room temp or fridge',tm:'12 to 16 hours',u:'ml water'}};
+let cur='Pour over';const seg=$('#seg'),amt=$('#amt');
+Object.keys(M).forEach(k=>{const b=document.createElement('button');b.textContent=k;b.onclick=()=>pick(k);seg.appendChild(b)});
+function pick(k){cur=k;const m=M[k];amt.min=m.min;amt.max=m.max;amt.step=m.st;amt.value=m.d;$$('#seg button').forEach(b=>b.setAttribute('aria-pressed',b.textContent===k));calc()}
+function calc(){const m=M[cur],v=+amt.value;$('#aval').textContent=v+' '+m.u;$('#alab').textContent=cur==='Espresso'?'Drink size':'Water';
+$('#o0').textContent=(v/m.r).toFixed(1).replace('.0','')+' g';$('#o1').textContent=m.g;$('#o2').textContent=m.t;$('#o3').textContent=m.tm}
+amt.oninput=calc;pick(cur);
+/* subscription */
+function sub(){const sz=$('#size [aria-pressed=true]').dataset.v,fq=$('#freq [aria-pressed=true]').dataset.v,base=sz==='250'?650:2400;
+$('#so').textContent='₹'+base.toLocaleString('en-IN');$('#sp').textContent='₹'+Math.round(base*.9).toLocaleString('en-IN');$('#sf').textContent=fq}
+['#size','#freq'].forEach(id=>$$(id+' button').forEach(b=>b.onclick=()=>{$$(id+' button').forEach(x=>x.setAttribute('aria-pressed',x===b));sub()}));sub();
+$('#sj').onclick=()=>$('#sm').textContent='Lovely. We will email you to set up your first delivery.';
+/* newsletter */
+$('#nl').onsubmit=e=>{e.preventDefault();$('#nm').textContent='Thanks, your code is on its way.';e.target.reset()};
+/* open now */
+(function(){const d=new Date(),wk=d.getDay()%6!==0,o=wk?7:8,c=wk?21:22,h=d.getHours()+d.getMinutes()/60,el=$('#open'),t=$('#ot');
+const f=x=>(x>12?x-12:x)+(x>=12?' pm':' am');
+if(h>=o&&h<c){t.textContent='Open now, until '+f(c)}else{el.classList.add('x');t.textContent='Closed, opens '+f(o)+(h>=c?' tomorrow':'')}})();
+</script>
+</body>
+</html>
